@@ -24,7 +24,11 @@ public class Calculator {
     }
 
     public static int sum(String[] numbers){
-        return toInt(numbers[0]) + toInt(numbers[1]);
+        int sum = 0;
+        for(int i = 0; i < numbers.length; i++){
+            sum += toInt(numbers[i]);
+        }
+        return sum;
     }
 
 }
