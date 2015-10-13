@@ -40,10 +40,18 @@ public class CalculatorTest {
             assertEquals(8, Calculator.add("4,2,1,1,0,0"));
             assertEquals(10, Calculator.add("5,3,1,1"));
         }
+
     @Test
         public void testNewlineNumbers(){
             assertEquals(3, Calculator.add("1\n1,1"));
             assertEquals(7, Calculator.add("1\n4\n2"));
             assertEquals(10, Calculator.add("1,4\n1,3\n1"));
+        }
+
+    @Test
+        public void testAnyDelimNumbers(){
+            assertEquals(3, Calculator.add("//;\n1;1,1"));
+            assertEquals(7, Calculator.add("//s\n1\n2s2s2,2"));
+            assertEquals(10, Calculator.add("//x\n1x4x1x3x1"));
         }
 }
