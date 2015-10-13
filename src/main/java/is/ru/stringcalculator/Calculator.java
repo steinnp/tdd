@@ -6,7 +6,12 @@ public class Calculator {
         if(text == "")
             return 0;
         else
-            return Integer.parseInt(text);
+            return toInt(text);
 
     }
+
+    public static int toInt(String number){
+        return Integer.parseInt(number);
+    }
+
 }
