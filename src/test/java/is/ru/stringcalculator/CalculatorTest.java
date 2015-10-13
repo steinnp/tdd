@@ -31,4 +31,13 @@ public class CalculatorTest {
             assertEquals(8, Calculator.add("4,4"));
             assertEquals(10, Calculator.add("5,5"));
         }
+
+    @Test
+        public void testXNumbers(){
+            assertEquals(2, Calculator.add("1,1,0"));
+            assertEquals(4, Calculator.add("2,1,1"));
+            assertEquals(6, Calculator.add("3,2,1"));
+            assertEquals(8, Calculator.add("4,2,1,0,0,0"));
+            assertEquals(10, Calculator.add("5,3,1,1"));
+        }
 }
