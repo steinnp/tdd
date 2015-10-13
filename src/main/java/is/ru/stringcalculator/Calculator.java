@@ -7,7 +7,7 @@ public class Calculator {
             return 0;
         else if(text.contains(",")){
             String[] numbers = parseNumbers(text);
-            return toInt(numbers[0]) + toInt(numbers[1]);
+            return sum(parseNumbers(text));
         }
         else
             return toInt(text);
@@ -21,6 +21,10 @@ public class Calculator {
 
     public static String[] parseNumbers(String numbers){
         return numbers.split(",");
+    }
+
+    public static int sum(String[] numbers){
+        return toInt(numbers[0]) + toInt(numbers[1]);
     }
 
 }
