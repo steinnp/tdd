@@ -19,8 +19,15 @@ public class Calculator {
                 convert.remove(0);
                 convert = parseDelim(convert, newDelim);
             }
-            List<String> numbers = parseDelim(convert, ",");
-            return sum(numbers);
+            convert = parseDelim(convert, ",");
+            for(int i = 0; i < convert.size(); i++){
+                if(convert.get(i).contains("-")){
+                    String exceptionString = "Negatives not allowed: " + convert.get(i);
+                    IllegalArgumentException e = new IllegalArgumentException(exceptionString);
+                    throw(e);
+                }
+            }
+            return sum(convert);
         }
     }
     // turns a number equivalent of string to int
