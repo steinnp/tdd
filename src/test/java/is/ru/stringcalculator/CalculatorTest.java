@@ -71,4 +71,11 @@ public class CalculatorTest {
             assertEquals(9, Calculator.add("//s\n1\n2s2s2,2,500000"));
             assertEquals(10, Calculator.add("//x\n1x4x1,300000x3x1"));
         }
+
+    @Test
+        public void testAnyLengthDelimNumbers(){
+            assertEquals(3, Calculator.add("//;;\n1;;1,1"));
+            assertEquals(9, Calculator.add("//ssksk\n1\n2ssksk2ssksk2,2"));
+            assertEquals(10, Calculator.add("//x;;x\n1x;;x4x;;x1x;;x3x;;x1"));
+        }
 }
