@@ -10,8 +10,15 @@ public class Calculator {
         else{ 
             List<String> convert = new ArrayList<String>();
             convert.add(text);
-            List<String> tempNumbers = parseDelim(convert, ",");
-            List<String> numbers = parseDelim(tempNumbers, "\n");
+            List<String> tempNumbers = parseDelim(convert, "\n");
+            String delimCheck = tempNumbers.get(0);
+                if(delimCheck.matches("//(.*)") == true){
+                    String delim = delimCheck.substring(2,3);
+                    tempNumbers.remove(0);
+                    tempNumbers.add(delim);
+                    tempNumbers = parseDelim(tempNumbers, delim);
+                }
+            List<String> numbers = parseDelim(tempNumbers, ",");
             return sum(numbers);
         }
     }
@@ -39,4 +46,7 @@ public class Calculator {
         return sum;
     }
 
+    public static void main(String[] args){
+       int temp = add("\\\\;\n2,3;3\n5"); 
+    }
 }

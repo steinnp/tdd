@@ -51,7 +51,7 @@ public class CalculatorTest {
     @Test
         public void testAnyDelimNumbers(){
             assertEquals(3, Calculator.add("//;\n1;1,1"));
-            assertEquals(7, Calculator.add("//s\n1\n2s2s2,2"));
+            assertEquals(9, Calculator.add("//s\n1\n2s2s2,2"));
             assertEquals(10, Calculator.add("//x\n1x4x1x3x1"));
         }
 }
