@@ -20,16 +20,22 @@ public class Calculator {
                 convert = parseDelim(convert, newDelim);
             }
             convert = parseDelim(convert, ",");
-            for(int i = 0; i < convert.size(); i++){
-                if(convert.get(i).contains("-")){
-                    String exceptionString = "Negatives not allowed: " + convert.get(i);
-                    IllegalArgumentException e = new IllegalArgumentException(exceptionString);
-                    throw(e);
-                }
-            }
-            return sum(convert);
+            checkLegalNumbers(convert);
+        return sum(convert);
         }
     }
+
+    //checks for illegal numbers
+    public static void checkLegalNumbers(List<String> convert){
+        for(int i = 0; i < convert.size(); i++){
+            if(convert.get(i).contains("-")){
+                String exceptionString = "Negatives not allowed: " + convert.get(i);
+                IllegalArgumentException e = new IllegalArgumentException(exceptionString);
+                throw(e);
+            }
+        }
+    }
+
     // turns a number equivalent of string to int
     public static int toInt(String number){
         return Integer.parseInt(number);
