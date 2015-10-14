@@ -54,4 +54,11 @@ public class CalculatorTest {
             assertEquals(9, Calculator.add("//s\n1\n2s2s2,2"));
             assertEquals(10, Calculator.add("//x\n1x4x1x3x1"));
         }
+
+
+    @Test(expected=IllegalArgumentException.class)
+        public void testNegativeNumbers(){
+            assertEquals("Negatives not allowed: -1", Calculator.add("-1,2"));
+            assertEquals("Negatives not allowed: -4, -5", Calculator.add("-4,-5"));
+        }
 }
