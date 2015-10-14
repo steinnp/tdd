@@ -78,4 +78,11 @@ public class CalculatorTest {
             assertEquals(9, Calculator.add("//ssksk\n1\n2ssksk2ssksk2,2"));
             assertEquals(10, Calculator.add("//x;;x\n1x;;x4x;;x1x;;x3x;;x1"));
         }
+
+    @Test
+        public void testAnyLengthDelimNumbers(){
+            assertEquals(3, Calculator.add("//[;;][a]\n1;;1a1"));
+            assertEquals(10, Calculator.add("//[s][sksk]\n1\n2ssksk1s2ssksk2,2"));
+            assertEquals(20, Calculator.add("//[x;][;x]\n1x;1;x4x;2;x1x;3;x3x;4;x1"));
+        }
 }
