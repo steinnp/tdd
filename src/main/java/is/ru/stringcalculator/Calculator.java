@@ -43,7 +43,7 @@ public class Calculator {
     //parses any delimiter declared at the start of a string with the correct
     //syntax
     public static String getDelim(String delimCheck){
-        String delim = delimCheck.substring(2,3);
+        String delim = delimCheck.substring(2,delimCheck.length());
         return delim;
     }
 
