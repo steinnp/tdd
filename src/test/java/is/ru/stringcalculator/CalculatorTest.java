@@ -34,7 +34,7 @@ public class CalculatorTest {
 
     @Test
         public void testXNumbers(){
-            assertEquals(2, Calculator.add("1,1,0"));
+            assertEquals(12, Calculator.add("11,1,0"));
             assertEquals(4, Calculator.add("2,1,1"));
             assertEquals(6, Calculator.add("3,2,1"));
             assertEquals(8, Calculator.add("4,2,1,1,0,0"));
@@ -55,10 +55,20 @@ public class CalculatorTest {
             assertEquals(10, Calculator.add("//x\n1x4x1x3x1"));
         }
 
-
     @Test(expected=IllegalArgumentException.class)
         public void testNegativeNumbers(){
             assertEquals("Negatives not allowed: -1", Calculator.add("-1,2"));
             assertEquals("Negatives not allowed: -4, -5", Calculator.add("-4,-5"));
+        }
+    
+    @Test
+        public void testOverOneThousand(){
+        
+            assertEquals(1, Calculator.add("1,1001"));
+            assertEquals(1001, Calculator.add("1,1000"));
+            assertEquals(8, Calculator.add("4,2,1,1,1001,0"));
+            assertEquals(7, Calculator.add("1\n4\n2,1050"));
+            assertEquals(9, Calculator.add("//s\n1\n2s2s2,2,500000"));
+            assertEquals(10, Calculator.add("//x\n1x4x1,300000x3x1"));
         }
 }
