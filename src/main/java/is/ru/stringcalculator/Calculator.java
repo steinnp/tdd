@@ -62,7 +62,9 @@ public class Calculator {
     public static int sum(List<String> numbers){
         int sum = 0;
         for(int i = 0; i < numbers.size(); i++){
-            sum += toInt(numbers.get(i));
+            if(toInt(numbers.get(i)) < 1001){
+                sum += toInt(numbers.get(i));
+            }
         }
         return sum;
     }
