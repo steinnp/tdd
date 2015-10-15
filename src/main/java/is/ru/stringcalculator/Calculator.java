@@ -43,7 +43,8 @@ public class Calculator {
         return Integer.parseInt(number);
     }
     //parses any delimiters declared at the start of a string with the correct
-    //syntax
+    //syntax, longest delimiters come first to make sure smaller substrings
+    //dont change longer strings if they have the same characters
     public static List<String> getDelims(String delimCheck){
         String delim = delimCheck.substring(2,delimCheck.length());
         List<String> delims = new ArrayList<String>();
