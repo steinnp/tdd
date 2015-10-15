@@ -14,10 +14,12 @@ public class Calculator {
             String delimCheck = convert.get(0);
             //if a new delimiter is declared we get the delimiter and
             //parse the strings into substrings.
-            if(delimCheck.matches("//(.*)") == true){
-                String newDelim = getDelim(delimCheck);
+            if(delimCheck.substring(0,1).equals("/") && delimCheck.substring(1,2).equals("/")){
+                List<String> delims = getDelims(delimCheck);
                 convert.remove(0);
-                convert = parseDelim(convert, newDelim);
+                for(int i = 0; i < delims.size(); i++){
+                convert = parseDelim(convert, delims.get(i));
+                }
             }
             convert = parseDelim(convert, ",");
             checkLegalNumbers(convert);
@@ -40,11 +42,30 @@ public class Calculator {
     public static int toInt(String number){
         return Integer.parseInt(number);
     }
-    //parses any delimiter declared at the start of a string with the correct
+    //parses any delimiters declared at the start of a string with the correct
     //syntax
-    public static String getDelim(String delimCheck){
+    public static List<String> getDelims(String delimCheck){
         String delim = delimCheck.substring(2,delimCheck.length());
-        return delim;
+        List<String> delims = new ArrayList<String>();
+        delims.add(delim);
+        delims = parseDelim(delims, "\\[");
+        delims = parseDelim(delims, "]");
+        if(delims.get(0).equals(""))
+            delims.remove(0);
+        List<String> returnList = new ArrayList<String>();
+        while(delims.size() > 0){
+            String longest = delims.get(0);
+            int longestPos = 0;
+            for(int i = 0; i < delims.size(); i++){
+                if(delims.get(i).length() > longest.length()){
+                    longest = delims.get(i);
+                    longestPos = i;
+                }
+            }
+                returnList.add(longest);
+                delims.remove(longestPos);
+        }
+        return returnList;
     }
 
     //breaks down a list of strings into substrings with delim as delimiter

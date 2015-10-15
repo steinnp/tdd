@@ -80,8 +80,9 @@ public class CalculatorTest {
         }
 
     @Test
-        public void testAnyLengthDelimNumbers(){
+        public void testAnyNumberhDelimsNumbers(){
             assertEquals(3, Calculator.add("//[;;][a]\n1;;1a1"));
+            assertEquals(10, Calculator.add("//[sksk][s]\n1\n2ssksk1s2ssksk2,2"));
             assertEquals(10, Calculator.add("//[s][sksk]\n1\n2ssksk1s2ssksk2,2"));
             assertEquals(20, Calculator.add("//[x;][;x]\n1x;1;x4x;2;x1x;3;x3x;4;x1"));
         }
